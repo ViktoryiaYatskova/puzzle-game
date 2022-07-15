@@ -1,0 +1,209 @@
+body {
+    background-color: lightgrey;
+    margin: 0;
+}
+
+h1 {
+    font-family: fantasy, "Source Code Pro", sans-serif;
+    margin: 0;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    row-gap: 15px;
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+#myCanvas {
+    flex-grow: 1;
+    flex-shrink: 0;
+    min-height: 0;
+    width: auto;
+}
+
+#prize {
+    position: absolute;
+    z-index: -1;
+
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    opacity: 0;
+
+    width: auto;
+    height: 75%;
+    transform: rotateZ(-10deg);
+    transition: opacity 4000ms linear;
+}
+
+#prize #seal {
+    position: absolute;
+    margin: auto;
+    height: auto;
+    width: 50%;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    box-shadow: none;
+    opacity: 1;
+    cursor: pointer;
+}
+
+#prize::after {
+    content: "Open me";
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: fit-content;
+    margin: auto;
+    height: 1em;
+    text-align: center;
+    font-size: 36px;
+    font-family: cursive, fantasy;
+    line-height: 1;
+    color: white;
+    cursor: pointer;
+}
+
+#prize.revealed::after {
+    display: none;
+}
+
+#prize img {
+    height: 100%;
+    width: auto;
+    opacity: 0;
+}
+
+#restart {
+    visibility: hidden;
+    position: relative;
+    z-index: 1;
+}
+
+.button-53 {
+    background-color: #3DD1E7;
+    border: 0 solid #E5E7EB;
+    box-sizing: border-box;
+    color: #000000;
+    display: flex;
+    font-family: ui-sans-serif,system-ui,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+    font-size: 1rem;
+    font-weight: 700;
+    justify-content: center;
+    line-height: 1.75rem;
+    padding: .75rem 1.65rem;
+    position: relative;
+    text-align: center;
+    text-decoration: none #000000 solid;
+    text-decoration-thickness: auto;
+    width: 100%;
+    max-width: 460px;
+    position: relative;
+    cursor: pointer;
+    transform: rotate(-2deg);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+.button-53:focus {
+    outline: 0;
+}
+
+.button-53:after {
+    content: '';
+    position: absolute;
+    border: 1px solid #000000;
+    bottom: 4px;
+    left: 4px;
+    width: calc(100% - 1px);
+    height: calc(100% - 1px);
+}
+
+.button-53:hover:after {
+    bottom: 2px;
+    left: 2px;
+}
+
+@media (min-width: 768px) {
+    .button-53 {
+        padding: .75rem 3rem;
+        font-size: 1.25rem;
+    }
+}
+
+#confetti-canvas {
+    display: none;
+    position: absolute;
+    background: transparent;
+    margin: auto;
+    width: 100%;
+    height: 100%;
+}
+
+.complete #restart {
+    visibility: visible;
+}
+
+.complete #confetti-canvas {
+    display: block;
+}
+
+.complete #prize {
+    z-index: 1;
+    visibility: visible;
+    opacity: 1;
+}
+
+#prize.revealed img {
+    opacity: 1;
+
+    transition: opacity 3000ms linear;
+}
+
+.revealed #seal {
+    display: none;
+}
+
+.fancy-border {
+    /*background: repeating-linear-gradient(*/
+    /*        -45deg,*/
+    /*        white 0%,*/
+    /*        white 7.5px,*/
+    /*        hotpink 7.5px,*/
+    /*        hotpink 15px,*/
+    /*        white 15px,*/
+    /*        white 22.5px,*/
+    /*        hotpink 22.5px,*/
+    /*        hotpink 30px);*/
+    animation: animate 10s linear infinite;
+    padding: 15px;
+    background: repeating-linear-gradient(-45deg, red 0, red 12.5%, white 0, white 25%, #58a 0, #58a 37.5%, white 0, white 50%) 0 / 5em 5em;
+}
+
+.fancy-border,
+.fancy-border > * {
+    box-shadow: 0 0 2px deeppink,
+    0 0 5px rgba(0, 0, 0, 1),
+    inset 0 0 5px rgba(0, 0, 0, 1);
+    border-radius: 10px;
+}
+
+@keyframes animate {
+    from {
+        background-position: 0;
+    }
+
+    to {
+        background-position: 0 100%;
+    }
+}

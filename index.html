@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Puzzle Game</title>
+        <link rel="stylesheet" href="./styles.css">
+    </head>
+    <body onload="init();">
+        <main>
+            <h1>Let's play</h1>
+            <div id="prize" class="fancy-border" onclick="revealPrize()">
+                <img src="./prize.png" />
+                <img id="seal" src="./seal.png" />
+            </div>
+            <canvas id="myCanvas"></canvas>
+            <canvas id="confetti-canvas"></canvas>
+            <button id="restart" class="button-53" onclick="onRestart()">Restart</button>
+        </main>
+        <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+        <script src="./game-engine.js"></script>
+    </body>
+</html>
